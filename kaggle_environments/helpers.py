@@ -17,6 +17,9 @@ class Point(tuple):
     def __new__(cls: Type['Point'], x: int, y: int):
         return super(Point, cls).__new__(cls, tuple((x, y)))
 
+    def __getnewargs__(self):
+        return (self[0], self[1])
+
     @property
     def x(self):
         return self[0]
